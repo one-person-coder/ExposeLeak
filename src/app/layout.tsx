@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Montserrat, Roboto } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import { ThemeContextProvider } from "@/contexts/ThemeContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  weight: ["400", "600", "700"],
+});
+const roboto = Roboto({
+  variable: "--font-roboto",
+  weight: ["400", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -24,10 +30,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${inter.variable} ${montserrat.variable} ${roboto.variable} antialiased font-body `}>
+        <ThemeContextProvider>
+          <Header />
+          {children}
+        </ThemeContextProvider>
       </body>
     </html>
   );
