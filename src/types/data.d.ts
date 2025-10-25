@@ -7,7 +7,7 @@ export interface MenuLinkType {
   href: string;
 }
 
-export interface Category {
+export interface CategoryType {
   id: string;
   label?: string;
   href: string;

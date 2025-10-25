@@ -1,24 +1,24 @@
 import React from "react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import MainLogo from "./MainLogo";
+import MainLogo from "../common/MainLogo";
 import Searchbar from "./Searchbar";
 import AuthButton from "./AuthButton";
-import { Separator } from "@/components/ui/separator";
 import MenuLink from "./MenuLink";
 import ThemeSwitcherButton from "./ThemeSwitcherButton";
 import CategoryButton from "./CategoryButton";
+import CustomSeparator from "../common/Separator";
 
 function Header() {
   return (
-    <header className="sticky top-0">
-      <Card className="rounded-none shadow-none pt-3 pb-0 gap-0 border-none">
-        <CardContent className="app-container flex gap-5 justify-between items-center">
+    <header className="sticky top-0 z-10">
+      <Card className="rounded-none shadow-none pt-3 pb-0 gap-0 border-none sm:px-6 px-3">
+        <CardContent className="app-container px-0 flex flex-wrap lg:flex-nowrap gap-5 justify-between items-center">
           <MainLogo />
           <Searchbar />
           <AuthButton />
         </CardContent>
-        <Separator className="dark:bg-gray-600/50 mt-4 mb-0" />
-        <CardFooter className="app-container h-13.5 flex gap-5 justify-between items-center">
+        <CustomSeparator />
+        <CardFooter className="px-0 app-container h-13.5 flex gap-5 justify-between items-center">
           <CategoryButton />
           <MenuLink />
           <ThemeSwitcherButton />

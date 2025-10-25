@@ -1,25 +1,53 @@
-import { MENU_LINKs } from "@/data/data";
+"use client";
+import { MENU_LINK } from "@/data/data";
+import { urlBuilder } from "@/lib/utils";
 import { MenuLinkType } from "@/types/data";
 import Link from "next/link";
+import { useParams, usePathname } from "next/navigation";
 
 function MenuLink() {
-  const active = "/";
-  const getActiveClassName = (href: string) => {
-    return active === href ? "border-b-3 dark:border-[#70c4ff] dark:!text-[#70c4ff] border-primary text-primary" : "";
+  const params = useParams();
+  const pathname = usePathname();
+  let slug = params?.slug;
+  let active = "";
+
+  if (Array.isArray(slug)) slug = slug[0];
+
+  if (pathname === "/") {
+    active = "/";
+  } else if (pathname.startsWith("/categories/") && slug) {
+    active = slug;
+  } else if (pathname === "/categories") {
+    active = "categories";
+  }
+
+  if (Array.isArray(active)) active = active[0];
+
+  const isActive = (href: string): boolean => {
+    let activeUrl = "/";
+    if (active === "/") activeUrl = "/";
+    else if (active === "categories") activeUrl = "/categories";
+    else activeUrl = urlBuilder("categories", active);
+    return activeUrl === href;
   };
+
   return (
-    <div className="h-full">
+    <div className="h-full lg:block hidden">
       <nav className="h-full">
         <ul className="flex justify-between items-center h-full gap-10">
-          {MENU_LINKs?.map((lnk: MenuLinkType, idx: number) => (
+          {MENU_LINK?.map((lnk: MenuLinkType, idx: number) => (
             <li key={`${idx}-${lnk.id}`} className="h-full">
               <Link
                 href={lnk.href}
-                className={`h-full text-lg font-roboto dark:text-gray-300  flex gap-2 items-center justify-center min-w-12 dark:hover:text-[#70c4ff] hover:text-primary 
-                  ${getActiveClassName(lnk.href)}`}
+                className={`relative h-full text-lg font-roboto dark:text-gray-300  flex gap-2 items-center justify-center dark:hover:text-primary-light hover:text-primary ${
+                  isActive(lnk.href) && "text-primary dark:text-primary-light"
+                }`}
               >
-                {lnk?.svg && <lnk.svg className="w-6 h-6" strokeWidth={2.5} />}
+                {lnk?.svg && <lnk.svg className="w-6 h-6" />}
                 {lnk.label}
+                {isActive(lnk.href) && (
+                  <div className="w-full rounded-full absolute bottom-0 h-1 dark:bg-primary-light bg-primary min-w-12"></div>
+                )}
               </Link>
             </li>
           ))}

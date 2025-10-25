@@ -1,7 +1,7 @@
-import { Category, MenuLinkType } from "@/types/data";
+import { CategoryType, MenuLinkType } from "@/types/data";
 import { HouseIcon } from "lucide-react";
 
-export const MENU_LINKs: MenuLinkType[] = [
+export const MENU_LINK: MenuLinkType[] = [
   {
     id: "1",
     href: "/",
@@ -9,12 +9,12 @@ export const MENU_LINKs: MenuLinkType[] = [
   },
   {
     id: "2",
-    label: "Latest Videos",
+    label: "Latest",
     href: "/categories/latest-videos",
   },
   {
     id: "3",
-    label: "Trending Videos",
+    label: "Trending",
     href: "/categories/trending-videos",
   },
   {
@@ -29,7 +29,7 @@ export const MENU_LINKs: MenuLinkType[] = [
   },
 ];
 
-export const CATEGORIES: Category[] = [
+export const CATEGORIES: CategoryType[] = [
   { id: "1", label: "Web Development", videoCount: 24, href: "/categories/development" },
   { id: "2", label: "Mobile Apps", videoCount: 18, href: "/categories/apps" },
   { id: "3", label: "UI/UX Design", videoCount: 15, href: "/categories/design" },

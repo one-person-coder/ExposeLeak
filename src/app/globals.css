@@ -34,6 +34,7 @@
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  --color-primary-light: oklab(0.79 -0.06 -0.1);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -117,6 +118,9 @@
 }
 
 @layer utilities {
+  .input-style {
+    @apply py-5.5 !text-[1rem] focus-visible:ring-0 border-2 border-input/50 !bg-secondary dark:!bg-background focus-visible:!border-primary/70 dark:border-input dark:focus-visible:!border-gray-600;
+  }
 }
 
 @layer components {
@@ -126,7 +130,6 @@
   .h1 {
     font-size: clamp(1.75rem, 4vw, 2.25rem);
   }
-
   .h2 {
     font-size: clamp(1.375rem, 3vw, 1.875rem);
   }
