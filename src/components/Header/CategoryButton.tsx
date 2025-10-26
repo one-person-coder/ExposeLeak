@@ -8,15 +8,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { CATEGORIES } from "@/data/data";
-import { ChevronDown, Grid3X3 } from "lucide-react";
+import { ChevronDown, LayoutGrid } from "lucide-react";
 import { Badge } from "../ui/badge";
 
 export default function CategoryButton() {
+  const totalCategories = CATEGORIES.reduce((sum, cat) => sum + (cat?.videoCount || 0), 0);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="flex items-center gap-2 px-4 sm:px-6 py-2 rounded-full bg-secondary/70 text-back hover:bg-secondary dark:bg-background dark:data-[state=open]:bg-primary dark:hover:bg-background/60 transition-colors font-medium border data-[state=open]:bg-[#0072c4] data-[state=open]:text-white group">
-          <Grid3X3 className="w-5 h-5" strokeWidth={2} />
+        <button className="flex items-center gap-2 px-4 sm:px-6 py-2 rounded-full bg-secondary/70 text-back hover:bg-secondary dark:bg-background dark:data-[state=open]:bg-primary dark:hover:bg-background/60 transition-colors font-medium border data-[state=open]:bg-[#0072c4] data-[state=open]:text-white group focus-visible:outline-0">
+          <LayoutGrid className="w-5 h-5" strokeWidth={2} />
           <span className="sm:inline-flex hidden">Categories</span>
           <ChevronDown
             className="w-5 h-5 group-data-[state=open]:rotate-180 duration-150 sm:inline-flex "
@@ -48,7 +49,7 @@ export default function CategoryButton() {
         <div className="p-3 bg-secondary/70 dark:bg-background/50 border-t border-border flex items-center justify-between">
           <span className="dark:text-primary-light text-primary font-heading text-sm font-bold">Total Categories</span>
           <span className="dark:text-[hsl(205,100%,72%)] text-primary font-heading text-sm font-bold">
-            {CATEGORIES.reduce((sum, cat) => sum + cat.videoCount, 0)}
+            {totalCategories}
           </span>
         </div>
       </DropdownMenuContent>

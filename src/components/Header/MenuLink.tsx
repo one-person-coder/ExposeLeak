@@ -38,14 +38,14 @@ function MenuLink() {
           {MENU_LINK?.map((lnk: MenuLinkType, idx: number) => (
             <li key={`${idx}-${lnk.id}`} className="h-full">
               <Link
-                href={lnk.href}
-                className={`relative h-full text-lg font-roboto dark:text-gray-300  flex gap-2 items-center justify-center dark:hover:text-primary-light hover:text-primary ${
-                  isActive(lnk.href) && "text-primary dark:text-primary-light"
+                href={lnk.url}
+                className={`relative h-full text-lg font-roboto text-link flex gap-2 items-center justify-center ${
+                  isActive(lnk.url) && "text-primary dark:text-primary-light"
                 }`}
               >
                 {lnk?.svg && <lnk.svg className="w-6 h-6" />}
                 {lnk.label}
-                {isActive(lnk.href) && (
+                {isActive(lnk.url) && (
                   <div className="w-full rounded-full absolute bottom-0 h-1 dark:bg-primary-light bg-primary min-w-12"></div>
                 )}
               </Link>

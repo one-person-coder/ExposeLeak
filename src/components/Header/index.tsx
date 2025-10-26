@@ -10,8 +10,8 @@ import CustomSeparator from "../common/Separator";
 
 function Header() {
   return (
-    <header className="sticky top-0 z-10">
-      <Card className="rounded-none shadow-none pt-3 pb-0 gap-0 border-none sm:px-6 px-3">
+    <header className="sticky top-0 z-20">
+      <Card className="rounded-none shadow-none pt-3 pb-0 gap-0 border-none app-padding">
         <CardContent className="app-container px-0 flex flex-wrap lg:flex-nowrap gap-5 justify-between items-center">
           <MainLogo />
           <Searchbar />

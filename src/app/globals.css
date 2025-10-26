@@ -45,6 +45,10 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+@theme {
+  --breakpoint-xs: 30rem;
+}
+
 :root {
   --background: oklch(95.241% 0.00144 285.245);
   --foreground: oklch(0.15 0.015 245);
@@ -121,12 +125,21 @@
   .input-style {
     @apply py-5.5 !text-[1rem] focus-visible:ring-0 border-2 border-input/50 !bg-secondary dark:!bg-background focus-visible:!border-primary/70 dark:border-input dark:focus-visible:!border-gray-600;
   }
-}
-
-@layer components {
   .app-container {
     @apply w-full max-w-[1800] mx-auto;
   }
+  .app-padding {
+    @apply sm:px-6 px-3;
+  }
+  .app-space {
+    @apply my-8;
+  }
+  .text-link {
+    @apply dark:text-gray-300 dark:hover:text-primary-light hover:text-primary;
+  }
+}
+
+@layer components {
   .h1 {
     font-size: clamp(1.75rem, 4vw, 2.25rem);
   }

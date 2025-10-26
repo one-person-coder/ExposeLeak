@@ -28,8 +28,8 @@ function AuthDialogHeader() {
         <User size={27} />
       </div>
       <div>
-        <DialogTitle className="text-xl font-heading">Let&apos;s Get Started</DialogTitle>
-        <DialogDescription>Login or create an account to continue.</DialogDescription>
+        <DialogTitle className="text-xl font-heading text-start">Let&apos;s Get Started</DialogTitle>
+        <DialogDescription className="text-start">Login or create an account to continue.</DialogDescription>
       </div>
     </>
   );
@@ -38,7 +38,7 @@ function AuthDialogHeader() {
 function AuthDialog({ open = false, setOpen, mode }: AuthDialogProps) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="sm:max-w-[500px] bg-card border-none">
+      <DialogContent className="sm:max-w-[500px] bg-card border-none app-padding">
         <DialogClose asChild>
           <button className="absolute right-3.5 top-3.5 bg-destructive hover:bg-destructive/90 z-20 rounded-full p-1">
             <X className="h-6 w-6 text-white" strokeWidth={3} />

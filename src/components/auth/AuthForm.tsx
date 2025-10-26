@@ -8,7 +8,7 @@ function AuthForm({ mode }: { mode: AuthType }) {
   return (
     <div className="flex w-full flex-col gap-6">
       <Tabs defaultValue={mode} className="flex justify-center items-center">
-        <TabsList className="rounded-full p-1.5 h-14 sm:w-[360px] bg-background/80 dark:bg-background">
+        <TabsList className="rounded-full p-1.5 h-14 w-full sm:w-[360px] bg-secondary dark:bg-background">
           <TabsTrigger
             value="login"
             className="bg-transparent rounded-full h-full data-[state=active]:!bg-primary dark:text-white data-[state=active]:text-white text-[1rem] items-center justify-center"
