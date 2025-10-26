@@ -12,7 +12,7 @@ import { User, X } from "lucide-react";
 import CustomSeparator from "../common/Separator";
 import GoogleLoginButton from "./SocialLoginButtons";
 import AuthForm from "./AuthForm";
-import { AuthType } from "@/types/global";
+import { AuthType } from "@/global";
 import { Dispatch, SetStateAction } from "react";
 
 interface AuthDialogProps {

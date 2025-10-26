@@ -2,7 +2,7 @@ import { Lock, User } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
-import { AuthType } from "@/types/global";
+import { AuthType } from "@/global";
 
 function AuthForm({ mode }: { mode: AuthType }) {
   return (

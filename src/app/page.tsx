@@ -1,18 +1,19 @@
-import VideoCard from "@/components/card/VideoCard";
+import VideoGrid from "@/components/card/VideoGrid";
+import SectionTitle from "@/components/common/SectionTitle";
 import { VIDEOS } from "@/data/data";
-import React from "react";
 
 function HomePage() {
   return (
-    <div className="app-container app-padding app-space">
-      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-        <VideoCard video={VIDEOS[0]} />
-        <VideoCard video={VIDEOS[1]} />
-        <VideoCard video={VIDEOS[0]} />
-        <VideoCard video={VIDEOS[0]} />
-        <VideoCard video={VIDEOS[0]} />
-      </div>
-    </div>
+    <section className="app-container app-padding app-space section-space">
+      <section>
+        <SectionTitle label="Recently Uploaded" />
+        <VideoGrid videos={VIDEOS} />
+      </section>
+      <section>
+        <SectionTitle label="Most Viewed" />
+        <VideoGrid videos={VIDEOS} />
+      </section>
+    </section>
   );
 }
 

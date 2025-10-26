@@ -33,7 +33,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${montserrat.variable} ${roboto.variable} antialiased font-body `}>
         <ThemeContextProvider>
           <Header />
-          {children}
+          <main>{children}</main>
         </ThemeContextProvider>
       </body>
     </html>

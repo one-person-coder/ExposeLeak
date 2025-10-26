@@ -126,13 +126,16 @@
     @apply py-5.5 !text-[1rem] focus-visible:ring-0 border-2 border-input/50 !bg-secondary dark:!bg-background focus-visible:!border-primary/70 dark:border-input dark:focus-visible:!border-gray-600;
   }
   .app-container {
-    @apply w-full max-w-[1800] mx-auto;
+    @apply w-full max-w-[1900] mx-auto;
   }
   .app-padding {
     @apply sm:px-6 px-3;
   }
   .app-space {
-    @apply my-8;
+    @apply my-10;
+  }
+  .section-space {
+    @apply space-y-14
   }
   .text-link {
     @apply dark:text-gray-300 dark:hover:text-primary-light hover:text-primary;
