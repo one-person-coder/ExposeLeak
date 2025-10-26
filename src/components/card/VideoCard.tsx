@@ -6,7 +6,6 @@ import { CircleUser, Eye, LayoutGrid, LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { Spinner } from "../ui/spinner";
 
 type VideoCardProps = {
   video: VideoType;

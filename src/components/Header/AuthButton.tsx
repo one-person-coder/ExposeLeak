@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { User } from "lucide-react";
 import AuthDialog from "../auth/AuthDialog";
-import { AuthType, ChildrenPropType } from "@/global";
+import { AuthType, ChildrenPropType } from "@/types/global";
 
 type CustomButtonProps<T> = ChildrenPropType & T;
 
