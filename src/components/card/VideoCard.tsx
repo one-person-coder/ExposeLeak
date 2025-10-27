@@ -1,40 +1,15 @@
 "use client";
 import { VideoType } from "@/types/data";
 import { Card, CardHeader, CardContent, CardTitle, CardFooter } from "@/components/ui/card";
-import { CircleUser, Eye, LayoutGrid, LucideIcon } from "lucide-react";
+import { CircleUser, Eye, LayoutGrid } from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import PreviewImage from "./PreviewImage";
 import PreviewPlayer from "../player/PreviewPlayer";
+import IconBadge from "../common/IconBadge";
 
 type VideoCardProps = {
   video: VideoType;
 };
-
-type IconBadgeProps = {
-  Icon?: LucideIcon;
-  label: string | number;
-  url?: string;
-  className?: string;
-};
-
-export function IconBadge({ Icon, label = "unknown", url = "", className = "" }: IconBadgeProps) {
-  const Wrapper: React.ElementType = url ? Link : "div";
-
-  return (
-    <Wrapper
-      {...(url ? { href: url } : {})}
-      className={cn("flex mt-0.5 items-center gap-1 bg-background px-2 py-0.5 rounded-full text-link", className)}
-    >
-      {Icon && (
-        <span className="w-3.5 h-3.5">
-          <Icon className="h-full w-full" strokeWidth={2.5} />
-        </span>
-      )}
-      <span className="text-sm">{label}</span>
-    </Wrapper>
-  );
-}
 
 function VideoCard({ video }: VideoCardProps) {
   return (
@@ -46,11 +21,12 @@ function VideoCard({ video }: VideoCardProps) {
             label={video.label}
             width={640}
             height={360}
-            className="rounded-lg overflow-hidden"
+            className="rounded-t-lg overflow-hidden"
           />
           <PreviewPlayer src={video.previewUrl || ""} />
         </Link>
         <div className="z-10 absolute bottom-2 left-2 group-hover:opacity-0 duration-300">
+          {/* TODO: Fix Later Views */}
           <IconBadge Icon={Eye} label={`${video.views / 1000}K`} className="dark:text-white text-black" />
         </div>
         <div className="z-10 absolute bottom-2 right-2 group-hover:opacity-0 duration-300">
@@ -72,7 +48,7 @@ function VideoCard({ video }: VideoCardProps) {
         </CardTitle>
       </CardContent>
       <CardFooter className="px-2">
-        <div className="flex gap-2 justify-between items-center w-full">
+        <div className="flex gap-1 justify-between items-center w-full">
           <IconBadge Icon={LayoutGrid} label={video.category.label || ""} url={video.category.url} />
           <IconBadge Icon={CircleUser} label={video.uploadedBy.username} url={video.uploadedBy.url} />
         </div>

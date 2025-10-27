@@ -10,6 +10,8 @@ import CustomSeparator from "../common/Separator";
 
 function Header() {
   return (
+    // TODO: update if needed.
+    // <header>
     <header className="sticky top-0 z-20">
       <Card className="rounded-none shadow-none pt-3 pb-0 gap-0 border-none px-0">
         <CardContent className="app-container px-0 flex flex-wrap lg:flex-nowrap gap-5 justify-between items-center app-padding">

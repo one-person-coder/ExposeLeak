@@ -138,7 +138,7 @@
     @apply space-y-14
   }
   .text-link {
-    @apply dark:text-gray-300 dark:hover:text-primary-light hover:text-primary;
+    @apply dark:text-gray-200 dark:hover:!text-primary-light hover:!text-primary;
   }
 }
 

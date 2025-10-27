@@ -8,11 +8,15 @@ import {
 import { CATEGORIES } from "@/data/data";
 import { ChevronDown, LayoutGrid } from "lucide-react";
 import { Badge } from "../ui/badge";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function CategoryButton() {
+  const [open, setOpen] = useState<boolean>(false);
+  const toggleOpen = () => setOpen(!open);
   return (
     <>
-      <DropdownMenu modal={false}>
+      <DropdownMenu modal={false} open={open} onOpenChange={setOpen}>
         <DropdownMenuTrigger asChild>
           <button className="flex items-center gap-2 px-4 sm:px-6 py-2 rounded-full bg-secondary/70 text-back hover:bg-secondary dark:bg-background dark:data-[state=open]:bg-primary dark:hover:bg-background/60 transition-colors font-medium border data-[state=open]:bg-[#0072c4] data-[state=open]:text-white group focus-visible:outline-0">
             <LayoutGrid className="w-5 h-5" strokeWidth={2} />
@@ -31,7 +35,9 @@ export default function CategoryButton() {
 
           <div className="py-2 max-h-full">
             {CATEGORIES.map((category, idx: number) => (
-              <button
+              <Link
+                onClick={toggleOpen}
+                href={category.url}
                 key={`${idx}-${category.id}`}
                 className="w-full px-4 pl-6 py-3 flex items-center justify-between hover:bg-muted dark:hover:bg-background/60 transition-colors group"
               >
@@ -41,7 +47,7 @@ export default function CategoryButton() {
                 <Badge className="h-6 min-w-6 rounded-full px-1 bg-background text-black dark:text-white">
                   {category.videoCount}
                 </Badge>
-              </button>
+              </Link>
             ))}
           </div>
         </DropdownMenuContent>

@@ -1,3 +1,6 @@
+import ContentGrid from "@/components/card/ContentGrid";
+import SectionTitle from "@/components/common/SectionTitle";
+import { VIDEOS } from "@/data/data";
 import React from "react";
 
 interface CategorySlugPropsType {
@@ -7,9 +10,12 @@ interface CategorySlugPropsType {
 async function CategorySlugPage({ params }: CategorySlugPropsType) {
   const { slug } = await params;
   return (
-    <div>
-      <h1 className="font-semibold text-primary m-20 text-center dark:text-primary-light">{slug.replace("-", " ").toUpperCase()}</h1>
-    </div>
+    <section className="app-container app-padding app-space section-space">
+      <section>
+        <SectionTitle label={slug.replace("-", " ").toUpperCase()} />
+        <ContentGrid items={VIDEOS} itemType="video" />
+      </section>
+    </section>
   );
 }
 

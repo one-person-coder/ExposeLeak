@@ -11,7 +11,9 @@ export interface CategoryType {
   id: string;
   label?: string;
   url: string;
+  thumbnail?: string;
   videoCount?: number;
+  views?: number;
 }
 
 export interface UserType {

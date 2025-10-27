@@ -3,6 +3,7 @@ import { Inter, Montserrat, Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import { ThemeContextProvider } from "@/contexts/ThemeContext";
+import Footer from "@/components/footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,10 +31,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${montserrat.variable} ${roboto.variable} antialiased font-body !overflow-y-scroll`}>
+      <body
+        className={`${inter.variable} ${montserrat.variable} ${roboto.variable} antialiased font-body`}
+      >
         <ThemeContextProvider>
           <Header />
           <main>{children}</main>
+          <Footer />
         </ThemeContextProvider>
       </body>
     </html>

@@ -1,11 +1,16 @@
-import React from "react";
+import GridCard from "@/components/card/ContentGrid";
+import SectionTitle from "@/components/common/SectionTitle";
+import { CATEGORIES } from "@/data/data";
 
-function CategoryPage() {
+function HomePage() {
   return (
-    <div>
-      <h1 className="font-semibold text-primary m-20 text-center dark:text-primary-light">Categories Page</h1>
-    </div>
+    <section className="app-container app-padding app-space section-space">
+      <section>
+        <SectionTitle label="Categories" />
+        <GridCard items={CATEGORIES} itemType="category" />
+      </section>
+    </section>
   );
 }
 
-export default CategoryPage;
+export default HomePage;

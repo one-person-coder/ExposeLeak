@@ -1,4 +1,4 @@
-import VideoGrid from "@/components/card/VideoGrid";
+import ContentGrid from "@/components/card/ContentGrid";
 import SectionTitle from "@/components/common/SectionTitle";
 import { VIDEOS } from "@/data/data";
 
@@ -7,11 +7,11 @@ function HomePage() {
     <section className="app-container app-padding app-space section-space">
       <section>
         <SectionTitle label="Recently Uploaded" />
-        <VideoGrid videos={VIDEOS} />
+        <ContentGrid items={VIDEOS} itemType="video" />
       </section>
       <section>
         <SectionTitle label="Most Viewed" />
-        <VideoGrid videos={VIDEOS} />
+        <ContentGrid items={VIDEOS} itemType="video" />
       </section>
     </section>
   );
