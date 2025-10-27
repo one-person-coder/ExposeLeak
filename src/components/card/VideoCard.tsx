@@ -1,11 +1,11 @@
 "use client";
 import { VideoType } from "@/types/data";
-import Image from "next/image";
 import { Card, CardHeader, CardContent, CardTitle, CardFooter } from "@/components/ui/card";
 import { CircleUser, Eye, LayoutGrid, LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import PreviewImage from "./PreviewImage";
+import PreviewPlayer from "../player/PreviewPlayer";
 
 type VideoCardProps = {
   video: VideoType;
@@ -37,35 +37,18 @@ export function IconBadge({ Icon, label = "unknown", url = "", className = "" }:
 }
 
 function VideoCard({ video }: VideoCardProps) {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  const handleImageLoad = () => {
-    setIsLoading(false);
-  };
-
   return (
     <Card className="rounded-sm pt-0 overflow-hidden gap-2 pb-3 border-none justify-between">
       <CardHeader className="relative p-0 gap-0 group">
         <Link href={video.url} className="relative aspect-video overflow-hidden bg-border dark:bg-sidebar">
-          <Image
+          <PreviewImage
             src={video.thumbnail}
-            alt=""
-            fill
-            className="absolute inset-0 object-cover blur-xs scale-105"
-            aria-hidden="true"
-            style={{ visibility: isLoading ? "hidden" : "visible" }}
-          />
-
-          <Image
-            src={video.thumbnail}
-            alt={video.label}
+            label={video.label}
             width={640}
             height={360}
-            className="relative z-10 object-contain object-center w-full h-full transition duration-150"
-            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            onLoad={handleImageLoad}
-            style={{ visibility: isLoading ? "hidden" : "visible" }}
+            className="rounded-lg overflow-hidden"
           />
+          <PreviewPlayer src={video.previewUrl || ""} />
         </Link>
         <div className="z-10 absolute bottom-2 left-2 group-hover:opacity-0 duration-300">
           <IconBadge Icon={Eye} label={`${video.views / 1000}K`} className="dark:text-white text-black" />

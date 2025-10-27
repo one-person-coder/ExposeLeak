@@ -26,6 +26,7 @@ export interface VideoType {
   id: string;
   label: string;
   url: string;
+  previewUrl?: string;
   thumbnail: string;
   quality: string;
   category: CategoryType;
