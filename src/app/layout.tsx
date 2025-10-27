@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${montserrat.variable} ${roboto.variable} antialiased font-body `}>
+      <body className={`${inter.variable} ${montserrat.variable} ${roboto.variable} antialiased font-body !overflow-y-scroll`}>
         <ThemeContextProvider>
           <Header />
           <main>{children}</main>
