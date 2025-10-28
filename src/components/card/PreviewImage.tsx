@@ -32,6 +32,7 @@ function PreviewImage(props: PreviewImageProps) {
         fill
         className="absolute inset-0 object-cover blur-xs scale-105"
         aria-hidden="true"
+        // sizes={sizes} // TODO: fix later.
         style={{ visibility: isLoading ? "hidden" : "visible" }}
       />
       {/* Main image */}

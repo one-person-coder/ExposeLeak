@@ -40,7 +40,7 @@ function MenuLink() {
               <Link
                 href={lnk.url}
                 className={`relative h-full text-lg font-roboto text-link flex gap-2 items-center justify-center ${
-                  isActive(lnk.url) && "text-primary dark:text-primary-light"
+                  isActive(lnk.url) && "text-primary dark:!text-primary-light"
                 }`}
               >
                 {lnk?.svg && <lnk.svg className="w-6 h-6" />}

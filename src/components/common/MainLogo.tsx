@@ -5,8 +5,14 @@ import Link from "next/link";
 function MainLogo() {
   return (
     <div className="flex gap-1 items-center">
-      <div className="h-13 lg:h-14 w-11 lg:w-12 relative">
-        <Image src={"/images/common/dark-logo.webp"} fill alt={siteName} />
+      <div className="relative h-13 lg:h-14 w-11 lg:w-12">
+        <Image
+          src="/images/common/dark-logo.webp"
+          alt={siteName}
+          fill
+          sizes="(max-width: 1024px) 44px, 48px"
+          priority
+        />
       </div>
       <div className="flex flex-col">
         <Link href={"/"} className="text-2xl sm:text-3xl font-roboto font-bold text-[#0072c4] dark:text-primary-light">

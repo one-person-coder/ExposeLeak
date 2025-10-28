@@ -1,4 +1,5 @@
 import ContentGrid from "@/components/card/ContentGrid";
+import ContentPagination from "@/components/common/ContentPagination";
 import SectionTitle from "@/components/common/SectionTitle";
 import { VIDEOS } from "@/data/data";
 
@@ -8,6 +9,7 @@ function HomePage() {
       <section>
         <SectionTitle label="Recently Uploaded" />
         <ContentGrid items={VIDEOS} itemType="video" />
+        <ContentPagination />
       </section>
       <section>
         <SectionTitle label="Most Viewed" />

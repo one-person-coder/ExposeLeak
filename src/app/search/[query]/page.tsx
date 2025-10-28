@@ -1,22 +1,21 @@
 import ContentGrid from "@/components/card/ContentGrid";
 import SectionTitle from "@/components/common/SectionTitle";
 import { VIDEOS } from "@/data/data";
-import React from "react";
 
-interface CategorySlugPropsType {
-  params: Promise<{ slug: string }>;
+interface SearchPropsType {
+  params: Promise<{ query: string }>;
 }
 
-async function CategorySlugPage({ params }: CategorySlugPropsType) {
-  const { slug } = await params;
+async function SearchPage({ params }: SearchPropsType) {
+  const { query } = await params;
   return (
     <section className="app-container app-padding app-space section-space">
       <section>
-        <SectionTitle label={`Category: ${slug.replace("-", " ").toUpperCase()}`} />
+        <SectionTitle label={`Search: ${query.replace("-", " ").toLowerCase()}`} />
         <ContentGrid items={VIDEOS} itemType="video" />
       </section>
     </section>
   );
 }
 
-export default CategorySlugPage;
+export default SearchPage;
